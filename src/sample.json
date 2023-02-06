@@ -1,0 +1,54 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "wrap": true,
+          "size": "Medium",
+          "weight": "Bolder",
+          "text": "Check the fiber connection "
+        },
+        {
+          "type": "TextBlock",
+          "wrap": true,
+          "text": "Let's check the fiber connection on your AT&T Wi-Fi Gateway. The video below demonstrates how."
+        },
+        {
+          "profileId": "",
+          "deviceMac": "",
+          "preText": "",
+          "mimeType": "svg",
+          "id": "SVG",
+          "type": "Image",
+          "url": "https://d3adodch6dgzf3.cloudfront.net/VA/PA/checkFiberConnection/320_Bridge_connection.gif"
+        },
+        {
+          "type": "TextBlock",
+          "wrap": true,
+          "text": "Select Next once you have verified the connection."
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Next",
+      "data": {
+        "value": "DONE"
+      }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "No",
+      "data": {
+        "value": "REJECTED"
+      }
+    }
+  ],
+  "version": "1.5",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}
