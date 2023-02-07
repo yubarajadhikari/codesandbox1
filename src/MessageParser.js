@@ -11,7 +11,7 @@ class MessageParser {
         text: "Welcome, Let's get started",
       });
     }
-    if (message.includes("adapt")) {
+    else if (message.includes("adapt")) {
       const { body, actions } = SampleData;
       const { items } = body[0];
       items.forEach((item, index) => {
@@ -27,7 +27,7 @@ class MessageParser {
         }
       });
     }
-    if (
+    else if (
       message.includes("options") ||
       message.includes("help") ||
       message.includes("do for me")
@@ -35,7 +35,7 @@ class MessageParser {
       return this.actionProvider.handleOptions({ withAvatar: true });
     }
 
-    if (
+    else if (
       message.includes("talk") ||
       message.includes("speak") ||
       message.includes("real person") ||
@@ -46,7 +46,7 @@ class MessageParser {
       return this.actionProvider.handleContact();
     }
 
-    if (
+    else if (
       message.includes("stats") ||
       message.includes("statistics") ||
       message.includes("deaths")
@@ -57,11 +57,11 @@ class MessageParser {
       ];
     }
 
-    if (message.includes("medicine") || message.includes("delivery")) {
+    else if (message.includes("medicine") || message.includes("delivery")) {
       return this.actionProvider.handleMedicine();
     }
 
-    if (
+    else if (
       message.includes("joke") ||
       message.includes("jokes") ||
       message.includes("funny")
@@ -69,7 +69,7 @@ class MessageParser {
       return this.actionProvider.handleJoke();
     }
 
-    if (message.includes("thanks") || message.includes("thank you")) {
+    else if (message.includes("thanks") || message.includes("thank you")) {
       return this.actionProvider.handleThanks();
     } else return this.actionProvider.handleOptions({ withAvatar: true });
   }
