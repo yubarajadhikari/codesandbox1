@@ -1,29 +1,31 @@
-import SampleData from './sample.json';
+import SampleData from "./sample.json";
 class MessageParser {
   constructor(actionProvider, state) {
     this.actionProvider = actionProvider;
     this.state = state;
   }
 
-  parse(messages) {
-    const { body, actions } = SampleData;
-    const { items } = body[0];
-    items.forEach((item, index) => {
-      if (item.type === "TextBlock") {
-        if (index === items.length - 1 && actions.length > 0) {
-          return this.actionProvider.handleActionSubmit({
-            actions,
-            text: item.text
-          })
+  parse(message) {
+    if (message.includes("hi") || message.includes("hi")) {
+      return this.actionProvider.handleText({
+        text: "Welcome, Let's get started",
+      });
+    }
+    if (message.includes("adapt")) {
+      const { body, actions } = SampleData;
+      const { items } = body[0];
+      items.forEach((item, index) => {
+        if (item.type === "TextBlock") {
+          if (index === items.length - 1 && actions.length > 0) {
+            return this.actionProvider.handleActionSubmit({
+              actions,
+              text: item.text,
+            });
+          } else {
+            return this.actionProvider.handleText({ text: item.text });
+          }
         }
-        else {
-          return this.actionProvider.handleText({ text: item.text });
-        }
-      }
-    })
-    return;
-    if (message.type === "Action") {
-
+      });
     }
     if (
       message.includes("options") ||
@@ -51,7 +53,7 @@ class MessageParser {
     ) {
       return [
         this.actionProvider.handleGlobalStats(),
-        this.actionProvider.handleLocalStats()
+        this.actionProvider.handleLocalStats(),
       ];
     }
 
@@ -71,7 +73,7 @@ class MessageParser {
       return this.actionProvider.handleThanks();
     }
 
-    return this.actionProvider.handleOptions({ withAvatar: true });
+    // return this.actionProvider.handleOptions({ withAvatar: true });
   }
 }
 
