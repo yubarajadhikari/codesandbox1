@@ -71,9 +71,7 @@ class MessageParser {
 
     if (message.includes("thanks") || message.includes("thank you")) {
       return this.actionProvider.handleThanks();
-    }
-
-    // return this.actionProvider.handleOptions({ withAvatar: true });
+    } else return this.actionProvider.handleOptions({ withAvatar: true });
   }
 }
 
