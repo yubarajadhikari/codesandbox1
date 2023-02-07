@@ -35,6 +35,7 @@ const TypedReact = () => {
     <div>
       <h3>
         {/* <span ref={el} /> */}
+        Chat Bot
       </h3>
     </div>
   );
